@@ -1,6 +1,21 @@
 Hw::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.raise_delivery_errors = true
+  ActionMailer::Base.smtp_settings = {
+    # :enable_starttls_auto => true,
+    :address            => 'mail.mykidinfo.asia',
+    :port               => 2525,
+    :tls                  => false,
+    :domain             => 'mykidinfo.asia',
+    :authentication     => :plain,
+    :user_name          => 'admin@mykidinfo.asia',
+    :password           => 'admin' # for security reasons you can use a environment variable too. (ENV['INFO_MAIL_PASS'])
+  }
 
+  config.action_mailer.default_url_options = { :host => 'mykidinfo.asia' }
+  
   # Code is not reloaded between requests
   config.cache_classes = true
 
