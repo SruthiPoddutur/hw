@@ -1,7 +1,24 @@
 Hw::Application.configure do
-  # Settings specified here will take precedence over those in config/application.rb
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  # require 'tlsmail'
+
+ # Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.raise_delivery_errors = true
+  ActionMailer::Base.smtp_settings = {
+    # :enable_starttls_auto => true,
+    :address            => 'mail.mykidinfo.asia',
+    :port               => 2525,
+    :tls                  => false,
+    :domain             => 'mykidinfo.asia',
+    :authentication     => :plain,
+    :user_name          => 'admin@mykidinfo.asia',
+    :password           => 'admin' # for security reasons you can use a environment variable too. (ENV['INFO_MAIL_PASS'])
+  }
   
+  # Settings specified here will take precedence over those in config/application.rb
+  config.action_mailer.default_url_options = { :host => 'mykidinfo.asia' }
+   
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -15,7 +32,7 @@ Hw::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
