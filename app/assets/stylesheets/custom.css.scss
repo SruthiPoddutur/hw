@@ -10,6 +10,12 @@ html {
   overflow-y: scroll;
 }
 
+.notice:empty {
+  display: none;
+}
+.alert:empty {
+  display: none;
+}
 body {
   padding-top: 60px;
 }
