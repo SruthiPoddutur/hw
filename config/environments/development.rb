@@ -7,7 +7,7 @@ Hw::Application.configure do
   ActionMailer::Base.raise_delivery_errors = true
   ActionMailer::Base.smtp_settings = {
     # :enable_starttls_auto => true,
-    :address            => 'mail.mykidinfo.asia',
+    :address            => 's1-india.accountservergroup.com',
     :port               => 2525,
     :tls                  => false,
     :domain             => 'mykidinfo.asia',
