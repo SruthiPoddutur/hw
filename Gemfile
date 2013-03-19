@@ -3,11 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.1'
 gem 'bootstrap-sass', '2.1'
 gem 'devise'
-<<<<<<< HEAD
-# gem 'forem', :git => "git://github.com/radar/forem.git"
-=======
+
 gem 'forum_monster'
->>>>>>> 0a9d17e... forum v1
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

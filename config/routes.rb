@@ -1,11 +1,5 @@
 Hw::Application.routes.draw do
-<<<<<<< HEAD
-  devise_for :students
 
-  devise_for :teachers
-
-  devise_for :admins
-=======
   resources :categories, :except => [:index, :show]
   resources :forums, :except => :index do
     resources :topics, :shallow => true, :except => :index do
@@ -13,7 +7,6 @@ Hw::Application.routes.draw do
     end
     root :to => 'categories#index', :via => :get
   end
->>>>>>> 0a9d17e... forum v1
 
   devise_for :users, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 
