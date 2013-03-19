@@ -5,7 +5,7 @@ Hw::Application.routes.draw do
     resources :topics, :shallow => true, :except => :index do
       resources :posts, :shallow => true, :except => [:index, :show]
     end
-    root :to => 'categories#index', :via => :get
+    # root :to => 'categories#index', :via => :get
   end
 
   devise_for :users, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
