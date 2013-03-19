@@ -13,14 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130319163240) do
 
-  create_table "categories", :force => true do |t|
-    t.string   "title"
-    t.boolean  "state",      :default => true
-    t.integer  "position",   :default => 0
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-  end
-
   create_table "forums", :force => true do |t|
     t.string   "title"
     t.text     "description"
