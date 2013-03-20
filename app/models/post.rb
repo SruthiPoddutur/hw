@@ -23,6 +23,11 @@ class Post < ActiveRecord::Base
   # Callbacks
   before_save :topic_locked?
   
+   # searchable
+   searchable do
+     text :body
+   end
+
   # Methods
   private
     def topic_locked?

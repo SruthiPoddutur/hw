@@ -4,6 +4,15 @@ class ForumsController < ApplicationController
   
   def show
     @forum = Forum.find(params[:id])
+    # @topics = @forum.topics.paginate(:page => params[:page], :per_page => 1)
+    @search = @forum.topics.search do
+      fulltext params[:search]
+      paginate(:page => params[:page], :per_page => 1)
+      # with(:published_at).less_than(Time.zone.now)
+      # facet(:publish_month)
+      # with(:publish_month, params[:month]) if params[:month].present?
+    end
+    @topics = @search.results
   end
   
   def new

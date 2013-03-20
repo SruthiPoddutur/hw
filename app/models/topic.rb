@@ -26,6 +26,15 @@ class Topic < ActiveRecord::Base
     self.class.increment_counter :hits, id
   end
   
+   # searchable
+   searchable do
+     text :title, :boost => 5
+     text :body
+     text :posts do
+       posts.map { |post| post.body }
+     end
+   end
+
   private
     def create_initial_post
       self.posts.build(:body => self.body).tap do |post|

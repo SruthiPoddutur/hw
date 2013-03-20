@@ -5,6 +5,10 @@ gem 'bootstrap-sass', '2.1'
 gem 'devise'
 gem 'cancan'
 gem 'forum_monster'
+gem 'will_paginate', '~> 3.0'
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+gem 'progress_bar'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

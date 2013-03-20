@@ -1,4 +1,10 @@
 <div class="right controls"><%= link_to "Back to Forum List", forums_path %></div>
+<%= form_tag forum_path(@forum), :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 <div class="module">
   <div class="module_header">
     <%= @forum.title %>
@@ -16,7 +22,7 @@
         <th>Views</th>
         <th class="last_post" align="left">Last Post</th>
       </tr>
-      <% @forum.topics.each do |topic| %>
+      <% @topics.each do |topic| %>
       <tr>
         <td class="icon"><%= image_tag 'ruby.png' %></td>
         <td class="description">
@@ -32,5 +38,6 @@
       </tr>
       <% end %>
     </table>
+    <%= will_paginate @topics %>
   </div>
 </div>
