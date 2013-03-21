@@ -9,6 +9,7 @@ class Forum < ActiveRecord::Base
   
   # Scopes
   default_scope :order => 'position ASC'
+  scope :recent, where("created_at > ? ", Date.today - 7) 
   
   # Validations
   validates :title,       :presence => true
